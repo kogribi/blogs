@@ -10,8 +10,19 @@ Route::get('/', function () {
 
 
 Route::get('/blog', [BlogController::class, 'index']);
+Route::get('/blog/create', [BlogController::class, 'create']);
 Route::get('/blog/{blog}', [BlogController::class, 'show']);
+Route::post('/blog', [BlogController::class, 'store']);
+Route::get('/blog/{blog}/edit', [BlogController::class, 'edit']);
+Route::put('/blog/{blog}', [BlogController::class, 'update']);
+Route::delete('/blog/{blog}', [BlogController::class, 'destroy']);
+
 
 
 Route::get('/categories', [CategoryController::class, 'index']);
+Route::get('/categories/create', [CategoryController::class, 'create']);
 Route::get('/categories/{category}', [CategoryController::class, 'show']);
+Route::post('/categories', [CategoryController::class, 'store']);
+Route::get('/categories/{category}/edit', [CategoryController::class, 'edit']);
+Route::put('/categories/{category}', [CategoryController::class, 'update']);
+Route::delete('/categories/{category}', [CategoryController::class, 'destroy']);

@@ -5,7 +5,7 @@
     <h1>All blogs</h1>
 <ul>
     @foreach ($blogs as $blog)
-    <li><a href="blog/{{ $blog->id }}">{{ $blog->content }}</a></li>
+    <li><a href="blog/{{ $blog->id }}">{{ $blog->title }}</a></li>
     @endforeach
 </ul>
 </x-layout>
