@@ -8,6 +8,6 @@
     @csrf
     @method("delete")
     <button>🗑️</button>
-
     </form>
+
   </x-layout>

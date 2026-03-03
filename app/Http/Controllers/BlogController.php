@@ -6,6 +6,8 @@ use App\Models\Blog;
 use Illuminate\Http\Request;
 use App\Http\Controllers\CategoryController;
 use App\Models\Category;
+use App\Http\Controllers\CommentController;
+use App\Models\Comment;
 
 class BlogController extends Controller
 {
@@ -14,7 +16,8 @@ class BlogController extends Controller
         return view("blogs.index", compact("blogs"));
     }
     public function show(Blog $blog) {
-        return view("blogs.show", compact("blog"));
+        $comments = Comment::all();
+        return view("blogs.show", compact("blog","comments"));
     }
     public function create(){
         $categories = Category::all();
