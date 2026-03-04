@@ -30,3 +30,5 @@ Route::delete('/categories/{category}', [CategoryController::class, 'destroy']);
 
 Route::post('/comment', [CommentController::class, 'store']);
 Route::delete('/comment/{comment}', [CommentController::class, 'destroy']);
+Route::get('/comment/{comment}/edit', [CommentController::class, 'edit']);
+Route::put('/comment/{comment}', [CommentController::class, 'update']);

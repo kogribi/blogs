@@ -15,16 +15,16 @@
     <h2>Comments:</h2>
     <form method="POST" action="/comment">
         @csrf
-        <input name="autors" value="{{old("autors")}}" />
-        @error("autors")
+        <input name="Create_autors" value="{{old("Create_autors")}}" />
+        @error("Create_autors")
             <p>{{ $message }}</p>
         @enderror
-        <input name="content" value="{{old("content")}}" />
-        @error("content")
+        <input name="Create_content" value="{{old("Create_content")}}" />
+        @error("Create_content")
             <p>{{ $message }}</p>
         @enderror
-        <input type="hidden" name="post_id" value="{{$blog->id}}" />
-        @error("post_id")
+        <input type="hidden" name="Create_post_id" value="{{$blog->id}}" />
+        @error("Create_post_id")
             <p>{{ $message }}</p>
         @enderror
         <button>Sūtīt</button>
@@ -32,12 +32,14 @@
     @foreach($comments as $comment)
     @if($comment->post_id == $blog->id)
         <div>
-        {{ $comment->autors }}: {{ $comment->content }}
+        <div>{{ $comment->autors }}: {{ $comment->content }}</div>
+        <span>{{ $comment->updated_at }}</span>
         <form method="POST" action="/comment/{{$comment->id}}">
         @csrf
         @method("delete")
         <button>🗑️</button>
-        </form> 
+        </form>
+        <a href="/comment/{{$comment->id}}/edit">Rediģēt</a>
         </div>
     @endif
 @endforeach
