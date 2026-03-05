@@ -14,7 +14,7 @@
             <p>{{ $message }}</p>
         @enderror
         <select name="category_id">
-            <option value="0">No category</option>
+            <option value="">No category</option>
             @foreach ($categories as $category)
             <option value="{{$category->id}}">{{$category->category_name}}</option>
             @endforeach   

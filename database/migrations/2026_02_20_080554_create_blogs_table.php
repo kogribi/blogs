@@ -15,7 +15,9 @@ return new class extends Migration
             $table->id();
             $table->string("title");
             $table->string("content");
-            $table->integer("category_id");
+            $table->foreignId("category_id")->nullable()->constrained(
+                table: 'categories', column: 'id' , indexName: 'blog_category_id'
+            )->nullOnDelete();
             $table->timestamps();
         });
     }

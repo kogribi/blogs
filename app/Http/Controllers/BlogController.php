@@ -28,12 +28,12 @@ class BlogController extends Controller
         $validated = $request->validate([
             "title" => ["required", "max:50"],
             "content" => ["required", "max:255"],
-            "category_id" => ["required"]
+            "category_id" => ["nullable", "exists:categories,id"]
           ]);
         Blog::create([
             "title" => $validated["title"],
             "content" => $validated["content"],
-            "category_id" => $validated["category_id"],
+            "category_id" => $validated["category_id"] ?? null,
             
           ]);
             return redirect("/blog");

@@ -34,12 +34,12 @@
         <div>
         <div>{{ $comment->autors }}: {{ $comment->content }}</div>
         <span>{{ $comment->updated_at }}</span>
+        <a href="/comment/{{$comment->id}}/edit">Rediģēt</a>
         <form method="POST" action="/comment/{{$comment->id}}">
         @csrf
         @method("delete")
         <button>🗑️</button>
         </form>
-        <a href="/comment/{{$comment->id}}/edit">Rediģēt</a>
         </div>
     @endif
 @endforeach

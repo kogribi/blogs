@@ -59,12 +59,12 @@
         <div>
         <div>{{ $Allcomment->autors }}: {{ $Allcomment->content }}</div>
         <span>{{ $Allcomment->updated_at }}</span>
+        <a href="/comment/{{$Allcomment->id}}/edit">Rediģēt</a>
         <form method="POST" action="/comment/{{$Allcomment->id}}">
         @csrf
         @method("delete")
         <button>🗑️</button>
         </form>
-        <a href="/comment/{{$Allcomment->id}}/edit">Rediģēt</a>
         </div>
     
     @endif
