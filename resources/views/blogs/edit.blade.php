@@ -20,7 +20,7 @@
         @enderror
 
         <select name="category_id" id="cars">
-            <option value="0">No category</option>
+            <option value="">No category</option>
             @foreach ($categories as $category)
             <option value="{{$category->id}}" {{$blog->category_id == $category->id ? 'selected' : ''}}>{{$category->category_name}}</option>
             @endforeach   

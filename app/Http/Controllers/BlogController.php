@@ -46,11 +46,11 @@ class BlogController extends Controller
         $validated = $request->validate([
             "title" => ["required", "max:50"],
             "content" => ["required", "max:255"],
-            "category_id" => ["required"]
+            "category_id" => ["nullable", "exists:categories,id"]
           ]); 
           $blog->title = $validated["title"];
           $blog->content = $validated["content"];
-          $blog->category_id = $validated["category_id"];
+          $blog->category_id = $validated["category_id"] ?? null;
           $blog->save();
           return redirect("/blog/$blog->id");
     }
